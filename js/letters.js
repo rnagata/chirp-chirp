@@ -20,16 +20,16 @@ function countLetters(counter, sample_text){
   if (sample_text.length === 0){
     return counter;
   }
-  for (let property in counter){
-    if (property === sample_text.slice(-1).toLowerCase()){
-      counter[sample_text.slice(-1).toLowerCase()]++;
-    }
+
+  const lastChar = sample_text.slice(-1).toLowerCase();
+  if (counter.hasOwnProperty(lastChar)){
+    counter[lastChar]++;
   }
   sample_text = sample_text.slice(0, sample_text.length - 1);
   countLetters(counter, sample_text);
 }
 
-// recurisve should have a base case based on input.
+// recursive should have a base case based on input.
 // call function again with same variables, but in each
 // call we adjust something about them, thus changing
 // our parameter in some way. In this case alter the
